@@ -14,15 +14,17 @@ import tw.test.apis.GiftTable;
 public class MyGift extends JFrame{
 	
 	private GiftTable giftTable;
-	private JButton del;
+	private JButton del,add;
 	
 	public MyGift() {
 		super("MyGift");
 		
 		setLayout(new BorderLayout());
 		del = new JButton("del");
+		add = new JButton("add");
 		JPanel top = new JPanel();
 		top.add(del);
+		top.add(add);
 		add(top,BorderLayout.NORTH);
 		
 		giftTable = new GiftTable();
