@@ -9,16 +9,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-// java為預設編譯ISO8859-1 
-
-@WebServlet("/test03")
-public class test03 extends HttpServlet {
+@WebServlet("/test06b")
+public class test06b extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		request.setCharacterEncoding("UTF-8");
+		
+		String x = request.getParameter("x");
+		String y = request.getParameter("y");
+		
+		int sum = Integer.parseInt(x) + Integer.parseInt(y);
+		
 		response.setContentType("text/html; charset=UTF-8");
-		PrintWriter pw = response.getWriter();
-		pw.print("hello");
+		PrintWriter out = response.getWriter();
+		out.printf("%s + %s = %d",x,y,sum);
+		response.flushBuffer();
 	}
-
 }

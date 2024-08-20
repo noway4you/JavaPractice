@@ -9,17 +9,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class test01
- */
-@WebServlet("/test01")
-public class test01 extends HttpServlet {
+// java為預設編譯ISO8859-1 
+
+@WebServlet("/test03b")
+public class test03b extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-		System.out.println("ok");
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter pw = response.getWriter();
-		pw.print("\nHello");
+		pw.print("hello");
 	}
 
 }

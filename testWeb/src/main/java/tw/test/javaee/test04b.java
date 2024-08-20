@@ -12,10 +12,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/test04")
-public class test04 extends HttpServlet {
+@WebServlet("/test04b")
+public class test04b extends HttpServlet {
 	
-    public test04() {
+    public test04b() {
         System.out.println("test04()");
     }
 
