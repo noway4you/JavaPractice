@@ -16,4 +16,14 @@ public class MyUtils {
 		bin.close();
 		return new String(buffer);
 	}
+	
+	public static String cal(String x,String y) {
+		try {
+			int intX = Integer.parseInt(x);
+			int intY = Integer.parseInt(y);
+			return intX + intY + "";
+		}catch(Exception e) {
+			return "";
+		}
+	}
 }
