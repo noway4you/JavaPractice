@@ -64,7 +64,7 @@ public class test19b extends HttpServlet {
 				String feature = result.getString("feature");
 				String address = result.getString("address");
 				String picture = result.getString("picture");
-				out.print("<tr><td>"+id+"</td><td>"+name+"</td><td>"+feature+"</td><td>"+address+"</td><td><img src="+picture+" width='160px' height='90px'></td></tr>");
+				out.print("<tr><td>"+id+"</td><td>"+name+"</td><td>"+feature+"</td><td>"+address+"</td><td><img src="+picture+" width='160px' height='90px'></td><td><button id="+id+">+</button></td></tr>");
 			}
 		} catch (SQLException e) {
 			
