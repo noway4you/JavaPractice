@@ -7,7 +7,7 @@
 		<title>Insert title here</title>
 	</head>
 	<body>
-		<h1>times table</h1>
+		<h1>Multiplication table</h1>
 		<form>
 		    Start = <input type="number" name="start">
 			Row x Col = <input type="number" name="rows">x<input type="number" name="cols">
@@ -15,19 +15,26 @@
 		</form>
 		<table border="1" width="100%">
 			<%
+				int start,rows,cols;
+				if(request.getParameter("start")==null) start = 2;
+				else start = Integer.parseInt(request.getParameter("start"));
+				if(request.getParameter("rows")==null) rows = 2;
+				else rows = Integer.parseInt(request.getParameter("rows"));
+				if(request.getParameter("cols")==null) cols = 4;
+				else cols = Integer.parseInt(request.getParameter("cols"));
 				
-				int count = 0;
-				out.print("<tr>");
-				for(int i=2;i<=9;i++){
-					count++;
-					if(count==5) out.print("</tr><tr>");
-					out.println("<td>");	
-					for(int j=1;j<=9;j++){
-						out.print(i+"x"+j+"="+i*j+"<br>");
+				for(int i=1;i<=rows;i++){
+					out.print("<tr>");
+					for(int j=1;j<=cols;j++){
+						out.print("<td>");
+						int new_start = start+(i-1)*cols+j-1;
+						for(int k=1;k<=9;k++){
+							out.print(new_start+" x "+k+" = "+(new_start * k)+"<br>");
+						}
+						out.print("</td>");
 					}
-					out.println("</td>");
+					out.print("</tr>");
 				}
-				out.print("</tr>");
 			%>
 		</table>
 	</body>
