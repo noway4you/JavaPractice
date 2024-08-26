@@ -3,6 +3,11 @@ package tw.test.apis;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.HashMap;
+import java.util.LinkedList;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 public class MyUtils {
 	public static String loadView() throws Exception {
@@ -36,5 +41,23 @@ public class MyUtils {
 	
 	public static String createScore() {
 		return (int)(Math.random()*100+1)+"";
+	}
+	
+	public static LinkedList<HashMap<String,String>> parseFood(String json) {
+		LinkedList<HashMap<String,String>> items = new LinkedList<>();
+		JSONArray root = new JSONArray(json);
+		
+		for(int i=0;i<root.length();i++) {
+			JSONObject row = root.getJSONObject(i);
+			HashMap<String,String> item = new HashMap<>();
+			item.put("name",row.getString("Name"));
+			item.put("city",row.getString("City"));
+			item.put("town",row.getString("Town"));
+			item.put("picture",row.getString("PicURL"));
+			item.put("lat",row.getString("Latitude"));
+			item.put("lng",row.getString("Longitude"));
+			items.add(item);
+		}
+		return items;
 	}
 }
