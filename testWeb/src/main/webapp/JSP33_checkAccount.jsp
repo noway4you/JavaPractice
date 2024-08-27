@@ -5,7 +5,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
 
 <c:if test="${empty param.account}">
-	<c:redirect url="LogIn.jsp"></c:redirect>
+	<c:redirect url="JSP33_LogIn.jsp"></c:redirect>
 </c:if>
 
 <sql:setDataSource
@@ -21,7 +21,7 @@
 </sql:query>
 
 <c:if test="${result.rowCount == 0}">
-	<c:redirect url="LogIn.jsp"></c:redirect>
+	<c:redirect url="JSP33_LogIn.jsp"></c:redirect>
 </c:if>
 
 <c:choose>
@@ -30,6 +30,6 @@
 		<c:redirect url="JSP33_MainPage.jsp"></c:redirect>
 	</c:when>
 	<c:otherwise>
-		<c:redirect url="LogIn.jsp"></c:redirect>
+		<c:redirect url="JSP33_LogIn.jsp"></c:redirect>
 	</c:otherwise>
 </c:choose>

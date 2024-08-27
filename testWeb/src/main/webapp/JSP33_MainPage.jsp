@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:if test="${empty member.account}">
-	<c:redirect url="LogIn.jsp"></c:redirect>
+	<c:redirect url="JSP33_LogIn.jsp"></c:redirect>
 </c:if>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
 <sql:setDataSource
@@ -34,6 +34,7 @@
 				<th>Account</th>
 				<th>Password</th>
 				<th>Delete</th>
+				<th>Edit</th>
 			</tr>
 			<sql:query var="result">select * from member</sql:query>
 			<script>
@@ -48,6 +49,7 @@
 					<td>${row.account}</td>
 					<td>${row.password}</td>
 					<td><a href="?deleteID=${row.id}" onclick="return isDelete('${row.name}')">Delete</a></td>
+					<td><a href="JSP33_editMember.jsp?editID=${row.id}">Edit</a></td>
 				</tr>
 			</c:forEach>
 		</table>

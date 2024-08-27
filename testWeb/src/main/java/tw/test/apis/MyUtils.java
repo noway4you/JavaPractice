@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.SortedMap;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -59,5 +60,27 @@ public class MyUtils {
 			items.add(item);
 		}
 		return items;
+	}
+	
+	public static String order2JSON(SortedMap[] rows) {
+		JSONObject root = new JSONObject();
+		if(rows.length>0) {
+			root.put("OrderID",rows[0].getOrDefault("OrderID",""));
+			root.put("CustomID",rows[0].getOrDefault("CustomerID",""));
+			root.put("OrderDate",rows[0].getOrDefault("OrderDate",""));
+			
+			JSONArray details = new JSONArray();
+			for(int i=0;i<rows.length;i++) {
+				SortedMap<String,String> row = rows[i];
+				JSONObject detail = new JSONObject();
+				detail.put("ProductID",row.getOrDefault("ProductID",""));
+				detail.put("ProductName",row.getOrDefault("ProductName",""));
+				detail.put("UnitPrice",row.getOrDefault("UnitPrice",""));
+				detail.put("Qty",row.getOrDefault("Quantity",""));
+				details.put(detail);
+			}
+			root.put("details",details);
+		}
+		return root.toString();
 	}
 }
