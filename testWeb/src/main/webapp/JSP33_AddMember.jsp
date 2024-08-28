@@ -34,10 +34,11 @@
 	<body>
 		Add Member Page
 		<hr>
-		<form method="post">
+		<form action="test21b" method="post" enctype="multipart/form-data">
 			Account:<input name="account"><br><br>
 			Password:<input type="password" name="password"><br><br>
 			Name:<input name="name"><br><br>
+			Icon:<input type="file" name="icon"><br><br>
 			<input type="submit" value="Add">
 		</form>
 	</body>
