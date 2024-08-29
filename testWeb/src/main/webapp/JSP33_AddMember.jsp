@@ -30,12 +30,22 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			function isAccountExist(){
+				$.get("JSP33_isAccountExist.jsp?account="+$("#account").val(),function(data,status){
+					if(status == "success"){
+						$("#mesg").html(data.count>0?"Account Exist":"");
+					}
+				});
+			};
+		</script>
 	</head>
 	<body>
 		Add Member Page
 		<hr>
-		<form action="test21b" method="post" enctype="multipart/form-data">
-			Account:<input name="account"><br><br>
+		<form action="test22b" method="post" enctype="multipart/form-data">
+			Account:<input name="account" id="account" onblur="isAccountExist()"><span id="mesg"></span><br><br>
 			Password:<input type="password" name="password"><br><br>
 			Name:<input name="name"><br><br>
 			Icon:<input type="file" name="icon"><br><br>

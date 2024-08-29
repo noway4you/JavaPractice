@@ -3,7 +3,7 @@ package tw.test.apis;
 public class Member {
 	
 	private int id;
-	private String account,password,name;
+	private String account,password,name,icon;
 	
 	public int getId() {
 		return id;
@@ -29,7 +29,12 @@ public class Member {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+	public String getIcon() {
+		return icon;
+	}
+	public void setIcon(String icon) {
+		this.icon = icon;
+	}
 	@Override
 	public String toString() {
 		return String.format("%d : %s",id,name);

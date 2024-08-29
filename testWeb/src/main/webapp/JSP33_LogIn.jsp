@@ -12,7 +12,7 @@
 	<body>
 		LogIn Page
 		<hr>
-		<form action="JSP33_checkAccount.jsp" method="post">
+		<form action="JSP33_checkAccount2.jsp" method="post">
 			Account:<input name="account"><br><br>
 			Password:<input type="password" name="password"><br><br>
 			<input type="submit" value="Login">

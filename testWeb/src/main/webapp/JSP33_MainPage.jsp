@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<% session.removeAttribute("editMember"); %>
 <c:if test="${empty member.account}">
 	<c:redirect url="JSP33_LogIn.jsp"></c:redirect>
 </c:if>
@@ -24,7 +25,9 @@
 		<title>Insert title here</title>
 	</head>
 	<body>
-		Welcome , ${member.account}<br>		
+		Welcome , ${member.account}<br>	
+		<img src="data:image/png; base64,${member.icon}">
+		<hr>	
 		<a href="JSP33_LogOut.jsp">LogOut</a><br>
 		<a href="JSP33_AddMember.jsp">Add Member</a>
 		<hr>
