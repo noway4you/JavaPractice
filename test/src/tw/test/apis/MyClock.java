@@ -52,7 +52,6 @@ public class MyClock extends JComponent{
 	private class MyTask extends TimerTask{
 		@Override
 		public void run() {
-			
 			date = new Date();
 			mili = System.currentTimeMillis();
 			s = (Math.PI/30000)*mili;

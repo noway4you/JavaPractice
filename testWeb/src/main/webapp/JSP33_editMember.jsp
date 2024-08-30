@@ -44,7 +44,6 @@
 			member.setIcon(iconBase64);
 			
 			session.setAttribute("editMember",member);
-			System.out.println("1");
 			
 		%>
 	</c:when>
@@ -59,7 +58,6 @@
 		</sql:update>
 		<%
 			session.removeAttribute("editMember");
-			System.out.println("2");
 		%>
 		<c:redirect url="JSP33_MainPage.jsp"></c:redirect>
 	</c:otherwise>
